@@ -16,9 +16,9 @@ class AuthSystem {
     );
 
     if (user) {
-      return `Login successful. Welcome, ${user.username}!`; // Use the actual stored username
+      return `Login successful. Welcome, ${user.username}!`;
     } else {
-      return "Invalid username or password. Please try again.";
+      return "Invalid username or password. Please try again, or sign-up";
     }
   }
 }
