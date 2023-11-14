@@ -1,70 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--CSS link--->
-  <link rel="stylesheet" href="signup.css">
-  <!---Icon link-->
-  <script src="https://kit.fontawesome.com/498ed3bdb3.js" crossorigin="anonymous"></script>
-  <!---JS link-->
-  <script src="signup.js"></script>
-  <title>Login</title>
+	<meta charset="utf-8">
+	<title> New Account Registration Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- MATERIAL DESIGN ICONIC FONT -->
+	<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+	<!-- STYLE CSS -->
+	<link rel="stylesheet" href="css/signup.css">
 </head>
 
 <body>
 
+	<div class="wrapper" style="background-image: url('images/reg-bg.jpeg');">
+		<div class="inner">
+			<form action="">
+				<h3>Registration Form</h3>
+				<div class="form-group">
+					<div class="form-wrapper">
+						<label for="">Username:</label>
+						<div class="form-holder">
+							<i class="zmdi zmdi-account-o"></i>
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="form-wrapper">
+						<label for="">Email:</label>
+						<div class="form-holder">
+							<i style="font-style: normal; font-size: 15px;">@</i>
+							<input type="text" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="form-wrapper">
+						<label for="">Password:</label>
+						<div class="form-holder">
+							<i class="zmdi zmdi-lock-outline"></i>
+							<input type="password" class="form-control" placeholder="********">
+						</div>
+					</div>
+					<div class="form-wrapper">
+						<label for="">Repeat Password:</label>
+						<div class="form-holder">
+							<i class="zmdi zmdi-lock-outline"></i>
+							<input type="password" class="form-control" placeholder="********">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="form-wrapper">
+						<label for="">Country:</label>
+						<div class="form-holder select">
+							<select name="" id="" class="form-control">
+								<option value="Country">South Africa</option>
+								<option value="united kingdom">United Kingdom</option>
+								<option value="United States">United States</option>
+							</select>
+							<i class="zmdi zmdi-pin"></i>
+						</div>
+					</div>
+					<div class="form-wrapper">
+						<label for="">Gender:</label>
+						<div class="form-holder select">
+							<select name="" id="" class="form-control">
+								<option value="male">Male</option>
+								<option value="femal">Female</option>
+								<option value="other">Other</option>
+							</select>
+							<i class="zmdi zmdi-face"></i>
+						</div>
+					</div>
+				</div>
+				<div class="form-end">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox"> Remember Me
+							<span class="checkmark"></span>
+						</label>
+					</div>
+					<div class="button-holder">
+						<button>Register Now</button>
+					</div>
 
-  <body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
-    <section class="ftco-section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-6 text-center mb-5">
-            <h2 class="heading-section">LOGO goes here</h2>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-6 col-lg-4">
-            <div class="login-wrap p-0">
-              <h3 class="mb-4 text-center">Have an account?</h3>
-              <form action="#" class="signin-form">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="E-mail" required>
-                </div>
-                <div class="form-group">
-                  <input id="password-field" type="password" class="form-control" placeholder="Password" required>
-                  <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                </div>
-                <div class="form-group">
-                  <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
-                </div>
-                <div class="form-group d-md-flex">
-                  <div class="w-50">
-                    <label class="checkbox-wrap checkbox-primary">Remember Me
-                      <input type="checkbox" checked>
-                      <span class="checkmark"></span>
-                    </label>
-                  </div>
-                  <div class="w-50 text-md-right">
-                    <a href="#" style="color: #fff">Forgot Password</a>
-                  </div>
-                </div>
-              </form>
-              <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
-              <div class="social d-flex text-center">
-                <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
-                <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
-              </div>
-              <br>
-              <p>Do not have an account?<a href="#"> Sign-up now</a></p>
+				</div>
+				<p>Do you an account?<a href="login.html"> Login</a></p>
+			</form>
+		</div>
+	</div>
 
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-  </body>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
