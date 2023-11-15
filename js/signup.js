@@ -1,6 +1,10 @@
-// Define a class to handle the registration form
+// SIGN UP JS
+
+// RegistrationForm class for handling user registration
 class RegistrationForm {
-  constructor() {
+  constructor(authSystem) {
+    this.authSystem = authSystem;
+
     // Get form elements by their IDs
     this.form = document.getElementById("registrationForm");
     this.usernameInput = document.getElementById("username");
@@ -10,6 +14,9 @@ class RegistrationForm {
     this.countrySelect = document.getElementById("country");
     this.genderSelect = document.getElementById("gender");
     this.rememberMeCheckbox = document.getElementById("rememberMe");
+
+    // Registering the submit method to handle form submission
+    this.form.addEventListener("submit", this.submit.bind(this));
   }
 
   // Method to validate the form
@@ -48,8 +55,8 @@ class RegistrationForm {
         gender: this.genderSelect.value,
       };
 
-      // Save user information to localStorage
-      localStorage.setItem("user", JSON.stringify(user));
+      // Call the register method of AuthSystem to handle user registration
+      this.authSystem.register(user);
 
       // Implement your form submission logic here (e.g., redirect to login page)
       console.log("Form submitted successfully!");
@@ -61,8 +68,8 @@ class RegistrationForm {
 
 // Function to handle the registration button click
 function register() {
-  // Create an instance of the RegistrationForm class
-  const registrationForm = new RegistrationForm();
-  // Call the submit method to handle form submission
-  registrationForm.submit();
+  // Create an instance of the AuthSystem class
+  const authSystem = new AuthSystem();
+  // Create an instance of the RegistrationForm class and pass the authSystem instance
+  const registrationForm = new RegistrationForm(authSystem);
 }

@@ -1,19 +1,24 @@
-// AuthSystem class for user login
+// LOGIN JS
+
+// AuthSystem class for user authentication
 class AuthSystem {
   constructor() {
+    // Retrieve existing users from local storage or initialize an empty array
     this.users = JSON.parse(localStorage.getItem("users")) || [];
   }
 
-  // Method to validate user login
+  // Method to handle user login
   login(username, password) {
     const usernameLower = username.toLowerCase(); // Convert to lowercase for case-insensitive comparison
 
+    // Check if the provided username and password match any existing user
     const user = this.users.find(
       (user) =>
         user.username.toLowerCase() === usernameLower &&
         user.password === password
     );
 
+    // Return a success message if a match is found, otherwise return an error message
     if (user) {
       return `Login successful. Welcome, ${user.username}!`;
     } else {
@@ -22,6 +27,7 @@ class AuthSystem {
   }
 }
 
+// LoginForm class for handling user login
 class LoginForm {
   constructor(authSystem) {
     this.authSystem = authSystem;
@@ -55,8 +61,10 @@ class LoginForm {
       this.validateForm();
       const username = this.nameInput.value.trim();
       const password = this.passwordInput.value.trim();
+      // Call the login method of AuthSystem to handle user login
       const result = this.authSystem.login(username, password);
       alert(result);
+      // Clear the form inputs
       this.clearForm();
       // Redirect to the "index.html" page
       window.location.href = "index.html";
