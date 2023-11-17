@@ -1,12 +1,31 @@
-// SIGN UP JS
+// Define the AuthSystem class
+class AuthSystem {
+  // Implement your authentication logic here
+  // For example: login, register, etc.
+  login(username, password) {
+    // Implement login logic
+    console.log(`User ${username} logged in`);
+  }
+  register(user) {
+    console.log(`User ${user.username} registered`);
 
-// RegistrationForm class for handling user registration
+    // Display a welcome message
+    alert(`Welcome, ${user.username}!`);
+
+    window.location.href = "index.html";
+  }
+  register(user) {
+    // Implement registration logic
+    console.log(`User ${user.username} registered`);
+  }
+}
+
 class RegistrationForm {
   constructor(authSystem) {
     this.authSystem = authSystem;
 
-    // Get form elements by their IDs
     this.form = document.getElementById("registrationForm");
+
     this.usernameInput = document.getElementById("username");
     this.emailInput = document.getElementById("email");
     this.passwordInput = document.getElementById("password");
@@ -15,14 +34,14 @@ class RegistrationForm {
     this.genderSelect = document.getElementById("gender");
     this.rememberMeCheckbox = document.getElementById("rememberMe");
 
-    // Registering the submit method to handle form submission
-    this.form.addEventListener("submit", this.submit.bind(this));
+    // Check if the form element exists before attaching the event listener
+    if (this.form) {
+      this.form.addEventListener("submit", this.submit.bind(this));
+    }
   }
 
   // Method to validate the form
   validate() {
-    // Implement your form validation logic here
-    // Check if the required fields are not empty
     if (
       this.usernameInput.value &&
       this.emailInput.value &&
@@ -31,7 +50,6 @@ class RegistrationForm {
       this.countrySelect.value &&
       this.genderSelect.value
     ) {
-      // Check if the password and repeat password match
       if (this.passwordInput.value !== this.repeatPasswordInput.value) {
         alert("Passwords do not match");
         return false;
@@ -43,10 +61,11 @@ class RegistrationForm {
     }
   }
 
-  // Method to submit the form
-  submit() {
+  // Method to handle form submission
+  submit(event) {
+    event.preventDefault();
+
     if (this.validate()) {
-      // Create an object to store user information
       const user = {
         username: this.usernameInput.value,
         email: this.emailInput.value,
@@ -55,21 +74,17 @@ class RegistrationForm {
         gender: this.genderSelect.value,
       };
 
-      // Call the register method of AuthSystem to handle user registration
       this.authSystem.register(user);
-
-      // Implement your form submission logic here (e.g., redirect to login page)
-      console.log("Form submitted successfully!");
     } else {
       console.log("Form validation failed!");
     }
   }
 }
 
-// Function to handle the registration button click
-function register() {
+// Run the registration function when the DOM is ready
+document.addEventListener("DOMContentLoaded", function () {
   // Create an instance of the AuthSystem class
   const authSystem = new AuthSystem();
   // Create an instance of the RegistrationForm class and pass the authSystem instance
   const registrationForm = new RegistrationForm(authSystem);
-}
+});
